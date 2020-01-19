@@ -127,6 +127,9 @@
     <PackageReference Include="Syncfusion.Xamarin.DocIO">
       <Version>17.4.0.43</Version>
     </PackageReference>
+    <PackageReference Include="AngleSharp">
+      <Version>0.13.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

@@ -8,6 +8,8 @@ namespace WordDocMaker
     {
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTkwMDI1QDMxMzcyZTM0MmUzMFE5V2NsaHk2K0w5MXhNQVNMR0EvOWhvNzJ2dklXazAzMkpSYjdWZXVKUXM9");
+
             InitializeComponent();
 
             MainPage = new MainPage();

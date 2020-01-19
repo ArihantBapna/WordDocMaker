@@ -46,7 +46,6 @@ class SaveAndroid: ISave
                 string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
                 Intent intent = new Intent();
                 intent.SetDataAndType(path, mimeType);
-                //intent.AddFlags(ActivityFlags.NewTask);
                 intent.SetFlags(ActivityFlags.NewTask);
                 Android.App.Application.Context.StartActivity(intent);
             }

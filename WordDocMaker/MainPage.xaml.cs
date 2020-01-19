@@ -31,7 +31,7 @@ namespace WordDocMaker
             //Adding a new section to the document
             WSection section = document.AddSection() as WSection;
             //Set Margin of the section
-            section.PageSetup.Margins.All = 72;
+            section.PageSetup.Margins.All = 10;
             //Set page size of the section
             section.PageSetup.PageSize = new Syncfusion.Drawing.SizeF(612, 792);
 
@@ -55,20 +55,11 @@ namespace WordDocMaker
             style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
             IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
-            paragraph.ApplyStyle("Normal");
-            paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
-            WTextRange textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
-            textRange.CharacterFormat.FontSize = 12f;
-            textRange.CharacterFormat.FontName = "Calibri";
-            textRange.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Red;
-
             //Appends paragraph
             paragraph = section.AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-            textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
-            textRange.CharacterFormat.FontSize = 18f;
-            textRange.CharacterFormat.FontName = "Calibri";
+            WTextRange textRange = paragraph.AppendText("This is a heading") as WTextRange;
            
             //Appends paragraph
             section.AddParagraph();
