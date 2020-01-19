@@ -35,6 +35,8 @@ namespace WordDocMaker
             //Set page size of the section
             section.PageSetup.PageSize = new Syncfusion.Drawing.SizeF(612, 792);
 
+            await Nosi.GetNosiScraped();
+            WTextRange textRange = new WTextRange(document);
             //Create Paragraph styles
             WParagraphStyle style = document.AddParagraphStyle("Normal") as WParagraphStyle;
             style.CharacterFormat.FontName = "Calibri";
@@ -56,10 +58,18 @@ namespace WordDocMaker
             IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
             //Appends paragraph
-            paragraph = section.AddParagraph();
-            paragraph.ApplyStyle("Heading 1");
-            paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-            WTextRange textRange = paragraph.AppendText("This is a heading") as WTextRange;
+            foreach (Nosi n in Scraper.NosiList)
+            {
+                paragraph = section.AddParagraph();
+                paragraph.ApplyStyle("Heading 1");
+                paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+                textRange = paragraph.AppendText(n.Head) as WTextRange;
+
+                paragraph = section.AddParagraph();
+                paragraph.ApplyStyle("Normal");
+                paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
+                textRange = paragraph.AppendText(n.Content) as WTextRange;
+            }
            
             //Appends paragraph
             section.AddParagraph();
