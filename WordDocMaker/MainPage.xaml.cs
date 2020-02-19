@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Xamarin.Forms;
@@ -79,7 +75,7 @@ namespace WordDocMaker
             document.Save(stream, FormatType.Docx);
 
             //Save the stream as a file in the device and invoke it for viewing
-            await Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+            await Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Nosi.docx", "application/msword", stream);
         }
     }
 }
